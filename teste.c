@@ -1,5 +1,6 @@
 #includ "main.h"
 
+
 int _testFormat(const char *format)
 {
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
