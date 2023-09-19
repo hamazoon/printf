@@ -6,6 +6,7 @@ int _printf(const char *format, ...)
 	char *str;
 	char c;
 	va_list args;
+	int length = 0;
 
 	va_start(args, format);
 
@@ -65,7 +66,6 @@ int _printf(const char *format, ...)
 						isNegative = 1;
 						num = -num;
 					}
-					int length = 0;
 
 					while (num > 0)
 					{
@@ -90,6 +90,7 @@ int _printf(const char *format, ...)
 			}
 		}
 
+	}
 		va_end(args);
 		return (count);
 }
