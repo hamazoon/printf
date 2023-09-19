@@ -54,7 +54,8 @@ int _printf(const char *format, ...)
 				{
 					char zero = '0';
 
-					count += write(1, &zero, 1);
+					write(1, &zero, 1);
+					count++;
 				} else
 				{
 					char numStr[32];
@@ -85,7 +86,8 @@ int _printf(const char *format, ...)
 						numStr[i] = numStr[length - i - 1];
 						numStr[length - i - 1] = temp;
 					}
-					count += write(1, numStr, length);
+					write(1, numStr, length);
+					count++;
 				}
 			}
 		}
