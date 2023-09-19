@@ -17,6 +17,7 @@ int _testFormat(const char *format)
 			return (-1);
 		if (format[0] == '%' && format[1] == ' ' && format[2] == '\0')
 			return (-1);
+		return (0);
 	}
 /**
  * testeStr - Handle string formatting and printing.
@@ -30,13 +31,15 @@ int _testFormat(const char *format)
  * Return: The updated character count after processing.
  */
 
-int testeStr(int count)
+int testeStr(int count, va_list args)
 {
+		char *str;
+		int j;
 		count = 0;
 		str = va_arg(args, char *);
 		if (str == NULL)
 		str = "(null)";
-		for (j = 0; str[j] != '\0'; j++)
+		for ( j = 0; str[j] != '\0'; j++)
 	{
 		write(1, &str[j], 1);
 		count++;
@@ -53,8 +56,9 @@ int testeStr(int count)
  *
  * Return: The updated character count after processing.
  */
-int testChar(int count)
+int testChar(int count, va_list args)
 {
+	char c;
 	c = va_arg(args, int);
 	write(1, &c, 1);
 	count++;
